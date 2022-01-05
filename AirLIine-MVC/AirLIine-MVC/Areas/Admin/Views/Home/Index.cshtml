@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<PlanViewModel>
+
+<div class="text-center">
+    <h1 class="display-4">لیست شرکت های هواپیمایی </h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">شرکت ها</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in ViewBag.listcompany)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.NameCompany</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+    <br>
+    <hr>
+
+    <h1 class="display-4">لیست پروازها </h1>
+    <table class="table">
+        <thead class="thead-blue">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ایر لاین</th>
+                <th scope="col">مبدا</th>
+                <th scope="col">مقصد</th>
+                <th scope="col">تاریخ</th>
+                <th scope="col">ساعت</th>
+                <th scope="col">ظرفیت</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.NameAirline</td>
+                        <td>@item.Mabda</td>
+                        <td>@item.maghsad</td>
+                        <td>@item.Starikh</td>
+                        <td>@item.Ssaat</td>
+                        <td>@item.zarfiat</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+</div>

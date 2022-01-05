@@ -1,0 +1,61 @@
+@model CompanyViewModel
+
+<br>
+<br>
+
+<form action="/Admin/home/AddCompanies" method="post">
+    <div class="form-control">
+        <label asp-for="NameCompany">نام کمپانی :</label>
+        <input asp-for="NameCompany" type="text" required>
+        <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+    
+    
+
+</form>
+
+<br>
+<hr>
+
+
+
+@if (ViewBag.m != null)
+{
+    <p class="alert alert-danger">@ViewBag.m</p>
+}
+
+
+@if (ViewBag.list != null)
+{
+    int a = 1;
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name Company</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var item in ViewBag.list)
+            {
+                <tr>
+                    <td>
+                        <p>@a</p>
+                    </td>
+                    <td>
+                        <p>@item.NameCompany</p>
+                    </td>
+
+
+                </tr>
+                a++;
+            }
+
+
+
+
+        </tbody>
+    </table>
+}
